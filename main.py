@@ -12,9 +12,11 @@ econ = ['client_id', 'cons_price_idx', 'euribor_three_months']
 data['job'] = data['job'].str.replace(".","_")
 
 data['education'] = data['education'].str.replace(".","_")
+
 data.loc[data['education'] == 'unknown' ,'education'] = np.nan
 
 mapping = {'no':False, 'unknown':False, 'yes':True, 'nonexistent':False, 'failure':False, 'success':True}
+
 data['credit_default'] = data['credit_default'].replace(mapping)
 data['mortgage'] = data['mortgage'].replace(mapping)
 data['campaign_outcome'] = data['campaign_outcome'].replace(mapping)
